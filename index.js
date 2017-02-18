@@ -57,7 +57,8 @@ class StudenTeachers {
 
 let studenTeacher = new StudenTeachers()
 
+//DRIVER TEST CODE
 // studenTeacher.validateEmail()//Test code for validate email & phone (teachers)
 // studenTeacher.findStudents(2)//check associate
-studenTeacher.findTeachers(1)//check associate
+// studenTeacher.findTeachers(1)//check associate
 // studenTeacher.addToStudenTeacher()//Insert into studenTeacher

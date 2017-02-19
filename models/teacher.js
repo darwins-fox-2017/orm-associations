@@ -1,13 +1,13 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-    var Teacher = sequelize.define('teachers', {
+    var Teachers = sequelize.define('Teachers', {
         name: DataTypes.STRING,
         email: {
           type: DataTypes.STRING,
           validate: {
             isEmail: true,
             isuniq: function(value, next) {
-                Teacher.find({
+                Teachers.find({
                     where: {
                         email: value
                     }
@@ -31,8 +31,9 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
+                Teachers.hasMany(model.Students, {foreignKey: 'teacher_id'})
             }
         }
     });
-    return Teacher;
+    return Teachers;
 };

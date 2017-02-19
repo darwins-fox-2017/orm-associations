@@ -39,10 +39,10 @@ function randomIntFromInterval(min,max)
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-function addTeacher(fullname, email,phone) {
-  model.Teacher.create({fullname: fullname, email: email, phone: phone})
+function addTeacher(name, email, phone) {
+  model.Teachers.create({name: name, email: email, phone: phone})
   .then(function(){
-    console.log(`${fullname} inserted`);
+    console.log(`${name} inserted`);
   }).catch(function(err){
     console.log(err);
     console.log(`May be there are something you mis ?`);

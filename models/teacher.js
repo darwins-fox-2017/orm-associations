@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-    var Teacher = sequelize.define('Teacher', {
+    var Teacher = sequelize.define('teachers', {
         name: DataTypes.STRING,
         email: {
           type: DataTypes.STRING,
@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
               }
             }
         },
-        phonenumber: {
+        phone: {
           type: DataTypes.STRING,
           validate: {
             len: [9, 13]

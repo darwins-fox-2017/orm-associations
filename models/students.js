@@ -1,8 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
     var Students = sequelize.define('Students', {
-        firstname: DataTypes.STRING,
-        lastname: DataTypes.STRING,
         birthdate: DataTypes.DATE,
         email: {
             type: DataTypes.STRING,
@@ -47,10 +45,8 @@ module.exports = function(sequelize, DataTypes) {
                 Students.findAll().then(function(data) {
                     data.forEach(function(res) {
                         let result = {};
-                        result['firstname'] = res.firstname;
-                        result['lastname'] = res.lastname;
+                        result['fullname'] = res.fullname;
                         result['birthdate'] = res.birthdate;
-                        result['fullname'] = res.getFullName();
                         results.push(result);
                     })
                     callback(results);
@@ -61,20 +57,15 @@ module.exports = function(sequelize, DataTypes) {
                 Students.findAll().then(function(currentData) {
                     currentData.forEach(function(item) {
                         let newdata = {}
-                        newdata['name'] = item.getFullName();
+                        newdata['fullname'] = item.fullname;
                         newdata['age'] = item.getAge();
                         result.push(newdata);
                     })
                     callback(result);
                 })
-
             }
         },
         instanceMethods: {
-            getFullName: function() {
-                return `${this.firstname} ${this.lastname} `
-            },
-
             getAge: function() {
                 let now = new Date();
                 return (now.getFullYear() - this.birthdate.getFullYear());

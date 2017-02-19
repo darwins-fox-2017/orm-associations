@@ -39,7 +39,7 @@ function randomIntFromInterval(min,max)
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-// addData('diky', 'arga', 1995-10-17, 'dikyarga.id@gmail.com', 178, '0857132321331')
+// addData('diky arga', 1995-10-17, 'dikyarga.id@gmail.com', 178, '0857132321331')
 // generateFakeData(100)
 // console.log(faker.phone.phoneNumberFormat());
 

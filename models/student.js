@@ -3,32 +3,24 @@ module.exports = function(sequelize, DataTypes) {
   var Student = sequelize.define('Student', {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    birthday: DataTypes.DATE,
-    email: {
-      type: DataTypes.STRING,
-      validate: {
-        isEmail: true
-      }
-    },
-    height: {
-          type: DataTypes.INTEGER,
-          validate: { min: 150 }
-            },
-    phone: {
-          type: DataTypes.STRING,
-          validate: {
-            len: [10 - 13],
-            isNumeric: false,
-            isAlphanumeric: false
-          }
-        },
-    teacherId: DataTypes.INTEGER
+    birth_date: DataTypes.DATE
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Student.belongsTo(models.Teacher);
+        Student.hasMany(models.StudentTeacher)
+        Student.belongsToMany(models.Teacher, {through: 'StudentTeacher'})
+      }
+    }, instanceMethods:{
+      getAge:function() {
+        let today = new Date()
+        let age   = today.getFullYear() - this.birth_date.getFullYear();
+        let month = today.getMonth() - this.birth_date.getMonth();
+
+        if (month < 0 || (month === 0 && today.getDate() < this.birth_date.getDate())) {
+         age--
+       }
+       return age
       }
     }
   });

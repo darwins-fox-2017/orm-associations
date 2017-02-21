@@ -12,21 +12,12 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-        return queryInterface.bulkInsert('Teachers', [{
-          name: 'bambang',
-          email: 'bambang@gmail.com',
-          phone: 0812887328,
-          studentId: null,
-          createdAt: new Date(),
-          updatedAt: new Date()
-        }, {
-          name: 'irsan',
-          email: 'irsan@gmail.com',
-          phone: 081762625252,
-          studentId: null,
-          createdAt: new Date(),
-          updatedAt: new Date()
-        }], {});
+    return queryInterface.bulkInsert('Teachers', [
+      {name: 'unicorn', email: 'unicorn@gmail.com', phone: 0814082132, createdAt: new Date(), updatedAt: new Date()},
+      {name: 'banshee', email: 'banshee@gmail.com', phone: 0813489234, createdAt: new Date(), updatedAt: new Date()},
+      {name: 'shinanju', email: 'shinanju@gmail.com', phone: 08134324092, createdAt: new Date(), updatedAt: new Date()},
+      {name: 'deltaPlus', email: 'deltaPlus@gmail.com', phone: 0812312093, createdAt: new Date(), updatedAt: new Date()}
+    ], {});
   },
 
   down: function (queryInterface, Sequelize) {

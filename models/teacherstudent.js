@@ -1,8 +1,8 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var TeacherStudent = sequelize.define('TeacherStudent', {
-    StudentId: DataTypes.INTEGER,
-    TeacherId: DataTypes.INTEGER
+    studentId: DataTypes.INTEGER,
+    teacherId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

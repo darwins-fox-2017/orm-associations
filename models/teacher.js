@@ -33,20 +33,14 @@ module.exports = function(sequelize, DataTypes) {
   });
   return Teacher;
 };
-[{},{},{}]
 
-teacherstudent
-1|1|4
-2|1|5
-3|1|6
 
-Teacher.findById(1).then(function(teacher) {
-  teacher.getStudents().then(function(students) {
-    looping
-  })
-  // Student.findAll({
-  //   where: {class:2}
-  // }).then(function(students) {
-  //   teacher.setStudents(students)
-  // })
-})
+// Teacher.findById(1).then(function(teacher) {
+//   teacher.getStudents().then(function(students) {
+//   })
+//   // Student.findAll({
+//   //   where: {class:2}
+//   // }).then(function(students) {
+//   //   teacher.setStudents(students)
+//   // })
+// })

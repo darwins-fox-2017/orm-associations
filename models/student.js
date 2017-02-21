@@ -40,8 +40,15 @@ module.exports = function(sequelize, DataTypes) {
   , {
     classMethods: {
       associate: function(models) {
-        student.belongsTo(models.teacher, { foreignKey:'teacher_id'} );
-      }
+        student.belongsToMany(models.teacher, {through:'studentTeacher'} );
+        //student.hasMany(models.teacher, { foreignKey:'studentId'} );
+      },
+
+    studentHasTeacher: function(){
+
+
+    }
+
     },
     instanceMethods: {
         getFullName: function() {

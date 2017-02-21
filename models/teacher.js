@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
             isEmail: true,
             isuniq: function(value, next) {
-                Student.find({
+                teacher.find({
                     where: {
                         email: value
                     }
@@ -31,7 +31,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-          teacher.hasMany(models.student, { foreignKey:'teacher_id'} );
+          teacher.belongsToMany(models.student, {through:'studentTeacher'} );
+          //teacher.hasMany(models.student, { foreignKey:'teacherId'} );
       }
     }
   });

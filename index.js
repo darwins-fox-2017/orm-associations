@@ -34,18 +34,8 @@ class StudentTeacherAssociation {
     })
   }
 
-}
 
-let studentProfile = {
-  name: faker.name.findName(),
-  email: faker.internet.email(),
-  phone: faker.phone.phoneNumberFormat()
-}
 
-let teacherProfile = {
-  name: faker.name.findName(),
-  email: faker.internet.email(),
-  phone: faker.phone.phoneNumberFormat()
 }
 
 let studentTeacher = new StudentTeacherAssociation()

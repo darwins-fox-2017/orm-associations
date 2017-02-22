@@ -56,6 +56,40 @@ function generateTeacherData(amont){
 }
 
 
+function whoIsMyTeacher(id) {
+  model.Students.findOne({
+    where:{
+      id:id
+    }
+  }).then(function(student){
+     console.log(`${student.fullname} has teachers: `);
+     //console.log(student);
+     student.getTeachers().then(function(teachers){
+       teachers.forEach(function(teacher){
+         console.log(`name :${teacher.name} | email : ${teacher.email}`);
+       })
+     })
+})
+}
+
+function whoIsMyStudent(id) {
+  model.Teachers.findOne({
+    where:{
+      id:id
+    }
+  }).then(function(teacher){
+     console.log(`${teacher.fullname} has teachers: `);
+     //console.log(student);
+     teacher.getStudents().then(function(students){
+       students.forEach(function(student){
+         console.log(`name :${student.fullname} | email : ${student.email}`);
+       })
+     })
+})
+}
+
+// whoIsMyTeacher(1)
+whoIsMyStudent(1)
 // generateTeacherData(9)
 
 // addData('diky arga', 1995-10-17, 'dikyarga.id@gmail.com', 178, '0857132321331')
@@ -63,5 +97,5 @@ function generateTeacherData(amont){
 // console.log(faker.phone.phoneNumberFormat());
 
 // getAge()
-getAllStudentData()
+// getAllStudentData()
 // updateStudent()

@@ -55,12 +55,13 @@ function generateTeacherData(amont){
   }
 }
 
-generateTeacherData(9)
+
+// generateTeacherData(9)
 
 // addData('diky arga', 1995-10-17, 'dikyarga.id@gmail.com', 178, '0857132321331')
 // generateFakeData(100)
 // console.log(faker.phone.phoneNumberFormat());
 
 // getAge()
-// getAllStudentData()
+getAllStudentData()
 // updateStudent()

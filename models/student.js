@@ -17,8 +17,8 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Students.hasMany(models.StudentTeachers)
-        Students.belongsToMany(models.Teachers,{through:'StudentTeachers'})
+        // Student.hasMany(models.StudentTeacher)
+        Student.belongsToMany(models.Teacher,{through:'StudentTeacher', foreignKey: 'student_id'})
       }
     }
   });
